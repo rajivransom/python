@@ -1,0 +1,27 @@
+#it has an Error
+#binary search
+#first sort the array using bubble sort
+x=eval(input("enter the array:"))
+n=len(x)
+print('the list given:',x)
+for i in range(n):
+    for j in range(0,n-i-1):
+        if x[j]>x[j+1]:
+            x[j],x[j+1]=x[j+1],x[j]
+
+print("the list sorted:",x)
+#binary search
+def binsearch(ar,key,low,high):
+    mid=(low+high)//2
+    if key==ar[mid]:
+        return mid
+    elif key>ar[mid]:
+        low=mid+1
+        return binsearch(ar,key,low,high)
+    else:
+        high=mid-1
+        return binsearch(ar,key,low,high)
+y=int(input("enter the element to search:"))
+p=binsearch(x,y,0,len(x)-1)
+print(p)
+    
